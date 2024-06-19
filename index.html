@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ben and Attilio GPT Store</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        canvas {
+            display: block;
+            margin: 20px auto;
+            width: 90%;
+            height: 400px; /* Set a fixed height for the canvas */
+        }
+
+        .section {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ben and Attilio's GPT Store</h1>
+    <h2>Welcome to Ben and Attilio's GPT Store! We have a wide variety of GPTs for different needs.</h2>
+    <div class="section" style="left: auto;">
+        <div class="scroll-animation" style="color: purple;">
+            <p>Up first, THE RIZZINATOR 9000</p>
+        </div>
+        <p class="scroll-animation">The Rizzinator 9000 provides honest financial, life, and therapeutic advice, with lots of rizz lines and much, much more.</p>
+        <p class="scroll-animation">To access the AI, you need to ask Ben or Attilio for a special code. Once you have the code, you can access the AI by pressing the button. It will then ask you for the code.If you enter the correct answer, you will be able to access the AI. Otherwise, it will say "try again."</p>
+        <button id="rizzinator-link" class="scroll-animation">THE RIZZINATOR 9000</button>
+    </div>
+    <div class="section" style="right: auto;">
+        <div class="scroll-animation" style="color: purple;">
+            <p>Up second, The Best AI</p>
+        </div>
+        <p class="scroll-animation">The Best AI is a highly versatile assistant specializing in coding, data analysis, health, design, research, productivity, tech support, content creation, finance, education, and much, much more.</p>
+        <p class="scroll-animation">To access the AI, you need to ask Ben or Attilio for a special code. Once you have the code, you can access the AI by pressing the button. It will then ask you for the code. If you enter the correct answer, you will be able to access the AI. Otherwise, it will say "try again."</p>
+        <button id="best-ai-link" class="scroll-animation">The Best AI</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        alert("Welcome to Ben and Attilio's GPT Store! We have a wide variety of GPTs, more precisely LLMs, created by us with the OpenAI GPT builder.");
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollElements = document.querySelectorAll('.scroll-animation');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            });
+
+            scrollElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            document.getElementById('rizzinator-link').addEventListener('click', () => {
+                const code = prompt("Enter the special code to access THE RIZZINATOR 9000:");
+                if (code === 'abababab') {
+                    window.location.href = 'https://chatgpt.com/g/g-ewFgZo4g9-the-rizzinator-9000';
+                } else {
+                    alert('Incorrect code. Please try again.');
+                }
+            });
+
+            document.getElementById('best-ai-link').addEventListener('click', () => {
+                const code = prompt("Enter the special code to access The Best AI:");
+                if (code === 'babababa') {
+                    window.location.href = 'https://chatgpt.com/g/g-ykkYeqZeY-the-best-ai';
+                } else {
+                    alert('Incorrect code. Please try again.');
+                }
+            });
+
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+        });
+    </script>
+</body>
+</html>
